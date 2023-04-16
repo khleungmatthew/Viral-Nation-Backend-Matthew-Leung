@@ -11,21 +11,21 @@ cd Viral-Nation-Backend-Matthew-Leung
 
 ## Usage
 ###  Database
-Please configure database by the following details
+Please configure database by the following details:
+```bash
 host: localhost
 port: 5432
 username: postgres
 password: (none)
 schma: vndb
-
+```
 ###  Authorization
 For all APIs except Sign Up and Log In, please add Authorization headers by `Authorization: Bearer {$token}` to request header
 Remarks: Json Web Token is valid for 1 hour
 ###  Sample queries and mutations
 
-```javascript
-
 # Sign up
+```javascript
 mutation SignUp($username: String!, $password: String!, $email: String!) {
   signUp(username: $username, password: $password, email: $email) {
     token
@@ -41,8 +41,10 @@ mutation SignUp($username: String!, $password: String!, $email: String!) {
     "password": "test",
     "email": "test@test.com"
 }
+```
 
 # Log in
+```javascript
 mutation LogIn($username: String!, $password: String!) {
   logIn(username: $username, password: $password) {
     token
@@ -57,8 +59,10 @@ mutation LogIn($username: String!, $password: String!) {
     "username": "test",
     "password": "test"
 }
+```
 
 # Change Password
+```javascript
 mutation ChangePassword($oldPassword: String!, $newPassword: String! ) {
   changePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
     message
@@ -69,8 +73,10 @@ mutation ChangePassword($oldPassword: String!, $newPassword: String! ) {
     "oldPassword": "test4",
     "newPassword": "test"
 }
+```
 
 # Create Movie
+```javascript
 mutation CreateMovie($name: String!, $director: String!, $description: String!, $releasedAt: Date! ) {
   createMovie(name: $name, director: $director, description: $description, releasedAt: $releasedAt) {
     movie {
@@ -89,8 +95,10 @@ mutation CreateMovie($name: String!, $director: String!, $description: String!, 
     "description": "amazing movie description",
     "releasedAt": "2023-04-15 20:45:00"
 }
+```
 
 # Update Movie
+```javascript
 mutation UpdateMovie($id: Int!, $name: String!, $director: String!, $description: String!, $releasedAt: Date! ) {
   updateMovie(id: $id, name: $name, director: $director, description: $description, releasedAt: $releasedAt) {
     movie {
@@ -110,8 +118,10 @@ mutation UpdateMovie($id: Int!, $name: String!, $director: String!, $description
     "description": "amazing movie description",
     "releasedAt": "2023-04-15 20:45:00"
 }
+```
 
 # Delete a Movie
+```javascript
 mutation DeleteMovie($id: Int!) {
   deleteMovie(id: $id) {
     ok
@@ -121,8 +131,10 @@ mutation DeleteMovie($id: Int!) {
 {
     "id": 1
 }
+```
 
 # Query a list of Movie
+```javascript
 query ListMovie($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: String, $filter: String) {
   movies(limit: $limit, offset: $offset, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
     movies {
@@ -145,8 +157,10 @@ query ListMovie($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: Str
     "sortOrder": "ASC",
     "filter": ""
 }
+```
 
 # Query Movie by name or description
+```javascript
 query GetMovie($key: String, $value: String) {
   movie(key: $key, value: $value) {
     movie {
@@ -163,8 +177,10 @@ query GetMovie($key: String, $value: String) {
     "key": "name", // or "key": "description"
     "value": "movie"
 }
+```
 
 # Create Review
+```javascript
 mutation CreateReview($movieId: Int!, $rating: Float!, $comment: String!) {
   createReview(movieId: $movieId, rating: $rating, comment: $comment) {
     review {
@@ -182,8 +198,10 @@ mutation CreateReview($movieId: Int!, $rating: Float!, $comment: String!) {
     "rating": 11.99,
     "comment": "It's awesome!"
 }
+```
 
 # Update Review
+```javascript
 mutation UpdateReview($movieId: Int!, $rating: Float!, $comment: String!) {
   updateReview(movieId: $movieId, rating: $rating, comment: $comment) {
     review {
@@ -201,8 +219,10 @@ mutation UpdateReview($movieId: Int!, $rating: Float!, $comment: String!) {
     "rating": 33.99,
     "comment": "It's awesome!"
 }
+```
 
 # Delete a Review
+```javascript
 mutation DeleteReview($movieId: Int!) {
   deleteReview(movieId: $movieId) {
     ok
@@ -212,8 +232,10 @@ mutation DeleteReview($movieId: Int!) {
 {
     "movieId": 1
 }
+```
 
 # Query a list of reviews
+```javascript
 query ListReview($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: String, $filter: String) {
   reviews(limit: $limit, offset: $offset, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
     reviews {
