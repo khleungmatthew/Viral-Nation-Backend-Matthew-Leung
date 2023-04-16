@@ -24,7 +24,7 @@ For all APIs except Sign Up and Log In, please add Authorization headers by `Aut
 Remarks: Json Web Token is valid for 1 hour
 ###  Sample queries and mutations
 
-# Sign up
+### Sign up
 ```javascript
 mutation SignUp($username: String!, $password: String!, $email: String!) {
   signUp(username: $username, password: $password, email: $email) {
@@ -35,7 +35,7 @@ mutation SignUp($username: String!, $password: String!, $email: String!) {
     }
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "username": "test",
     "password": "test",
@@ -43,7 +43,7 @@ mutation SignUp($username: String!, $password: String!, $email: String!) {
 }
 ```
 
-# Log in
+### Log in
 ```javascript
 mutation LogIn($username: String!, $password: String!) {
   logIn(username: $username, password: $password) {
@@ -54,28 +54,28 @@ mutation LogIn($username: String!, $password: String!) {
     }
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "username": "test",
     "password": "test"
 }
 ```
 
-# Change Password
+### Change Password
 ```javascript
 mutation ChangePassword($oldPassword: String!, $newPassword: String! ) {
   changePassword(oldPassword: $oldPassword, newPassword: $newPassword) {
     message
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "oldPassword": "test4",
     "newPassword": "test"
 }
 ```
 
-# Create Movie
+### Create Movie
 ```javascript
 mutation CreateMovie($name: String!, $director: String!, $description: String!, $releasedAt: Date! ) {
   createMovie(name: $name, director: $director, description: $description, releasedAt: $releasedAt) {
@@ -88,7 +88,7 @@ mutation CreateMovie($name: String!, $director: String!, $description: String!, 
     }
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "name": "amazing movie",
     "director": "John Doe",
@@ -97,7 +97,7 @@ mutation CreateMovie($name: String!, $director: String!, $description: String!, 
 }
 ```
 
-# Update Movie
+### Update Movie
 ```javascript
 mutation UpdateMovie($id: Int!, $name: String!, $director: String!, $description: String!, $releasedAt: Date! ) {
   updateMovie(id: $id, name: $name, director: $director, description: $description, releasedAt: $releasedAt) {
@@ -110,7 +110,7 @@ mutation UpdateMovie($id: Int!, $name: String!, $director: String!, $description
     }
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "id": 1,
     "name": "amazing movie",
@@ -120,20 +120,20 @@ mutation UpdateMovie($id: Int!, $name: String!, $director: String!, $description
 }
 ```
 
-# Delete a Movie
+### Delete a Movie
 ```javascript
 mutation DeleteMovie($id: Int!) {
   deleteMovie(id: $id) {
     ok
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "id": 1
 }
 ```
 
-# Query a list of Movie
+### Query a list of Movie
 ```javascript
 query ListMovie($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: String, $filter: String) {
   movies(limit: $limit, offset: $offset, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
@@ -149,7 +149,7 @@ query ListMovie($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: Str
     offset
   }
 }
-#GraphQL Variables
+// GraphQL Variables
 {
     "limit": 10,
     "offset": 0,
@@ -159,7 +159,7 @@ query ListMovie($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: Str
 }
 ```
 
-# Query Movie by name or description
+### Query Movie by name or description
 ```javascript
 query GetMovie($key: String, $value: String) {
   movie(key: $key, value: $value) {
@@ -179,7 +179,7 @@ query GetMovie($key: String, $value: String) {
 }
 ```
 
-# Create Review
+### Create Review
 ```javascript
 mutation CreateReview($movieId: Int!, $rating: Float!, $comment: String!) {
   createReview(movieId: $movieId, rating: $rating, comment: $comment) {
@@ -192,7 +192,7 @@ mutation CreateReview($movieId: Int!, $rating: Float!, $comment: String!) {
     }
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "movieId": 1,
     "rating": 11.99,
@@ -200,7 +200,7 @@ mutation CreateReview($movieId: Int!, $rating: Float!, $comment: String!) {
 }
 ```
 
-# Update Review
+### Update Review
 ```javascript
 mutation UpdateReview($movieId: Int!, $rating: Float!, $comment: String!) {
   updateReview(movieId: $movieId, rating: $rating, comment: $comment) {
@@ -213,7 +213,7 @@ mutation UpdateReview($movieId: Int!, $rating: Float!, $comment: String!) {
     }
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "movieId": 1,
     "rating": 33.99,
@@ -221,20 +221,20 @@ mutation UpdateReview($movieId: Int!, $rating: Float!, $comment: String!) {
 }
 ```
 
-# Delete a Review
+### Delete a Review
 ```javascript
 mutation DeleteReview($movieId: Int!) {
   deleteReview(movieId: $movieId) {
     ok
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "movieId": 1
 }
 ```
 
-# Query a list of reviews
+### Query a list of reviews
 ```javascript
 query ListReview($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: String, $filter: String) {
   reviews(limit: $limit, offset: $offset, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
@@ -250,7 +250,7 @@ query ListReview($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: St
     offset
   }
 }
-# GraphQL Variables
+// GraphQL Variables
 {
     "limit": 10,
     "offset": 0,
