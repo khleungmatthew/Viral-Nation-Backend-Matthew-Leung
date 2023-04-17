@@ -2,13 +2,21 @@
 
 ## Installation
 
-To clone this repository
+### To clone this repository
 
 ```bash
 git clone https://github.com/khleungmatthew/Viral-Nation-Backend-Matthew-Leung.git
 cd Viral-Nation-Backend-Matthew-Leung
 npm install
 ```
+
+## Build and Run the Server
+### To build
+
+```bash
+rm -rf dist/ && npm run build && npm run start
+```
+
 
 ## Usage
 ###  Database
@@ -259,10 +267,4 @@ query ListReview($limit: Int!, $offset: Int!, $sortField: String, $sortOrder: St
     "sortOrder": "DESC",
     "filter": ""
 }
-```
-## Build and Run the Server
-### To build
-
-```bash
-rm -rf dist/ && npm run build && npm run start
 ```
