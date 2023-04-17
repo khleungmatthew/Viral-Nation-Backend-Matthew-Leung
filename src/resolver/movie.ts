@@ -107,7 +107,7 @@ const getMovie = async (parent: any, args: any, context: any) => {
   if (!authUser) {
     throw new Error('unauthorized access');
   }
-  if (args.key != 'name' && args.key != 'description') {
+  if (args.key != 'id' && args.key != 'name' && args.key != 'description') {
     throw new Error('search key should be either name or description');
   }
   const where: Record<string, any> = {};

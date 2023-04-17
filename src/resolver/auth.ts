@@ -39,7 +39,7 @@ const signUp = async (parent: any, args: any, context: any) => {
 
 const logIn = async (parent: any, args: any, context: any) => {
   try {
-    if (!args.username || !args.password) {
+    if (args.username == "" || args.password == "") {
       throw new Error('username and password cannot be empty');
     }
     const user = await User.findOne({
