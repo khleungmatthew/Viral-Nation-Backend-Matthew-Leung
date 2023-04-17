@@ -7,6 +7,7 @@ To clone this repository
 ```bash
 git clone https://github.com/khleungmatthew/Viral-Nation-Backend-Matthew-Leung.git
 cd Viral-Nation-Backend-Matthew-Leung
+npm install
 ```
 
 ## Usage
